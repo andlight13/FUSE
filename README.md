@@ -1,6 +1,6 @@
 # FUSE
 
-RGSP (Relationally Guided Semantic Projection) and SASP (Selectivity-Aware Semantic Partitioning).
+Implementation of Relationally Guided Semantic Projection (RGSP) and Selectivity-Aware Semantic Partitioning (SASP).
 
 ## Method
 
@@ -32,8 +32,6 @@ sasp = SASP(n_regions=64, min_region_size=20)
 region_ids = sasp.fit_predict(coordinates, structured, attributes, tuple_ids=tuple_ids)
 region_to_tuple_index = sasp.region_to_tuple_index_
 ```
-
-`embeddings` is a row-aligned NumPy matrix. Structured columns and `tuple_ids` use the same tuple order. RGSP accepts pretrained semantic embeddings; embedding model selection is external to RGSP. The SASP reference predicate set is constructed from these structured columns unless supplied explicitly. `predict` assigns new semantic coordinates to the fitted regions.
 
 ## Verification
 
