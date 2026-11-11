@@ -134,7 +134,7 @@ def build_reference_predicates(
     seen = set(result)
     attempts = 0
     while len(result) < budget and attempts < max(1000, conjunction_target * 500):
-        arity = min(2 + ((len(result) - single_target) % 4), len(active))
+        arity = min(2 + (attempts % 4), len(active))
         names = rng.choice(active, size=arity, replace=False)
         terms = tuple(sorted((by_attribute[name][rng.integers(len(by_attribute[name]))] for name in names), key=lambda term: term.attribute))
         predicate = ReferencePredicate(terms)
